@@ -1,0 +1,11 @@
+.home-image-gallery-img {
+  opacity: 1;
+  float: left;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  border-radius: 5%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  object-fit: cover;
+}

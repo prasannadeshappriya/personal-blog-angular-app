@@ -1,0 +1,255 @@
+<div class="container" style="margin-top: 25px">
+  <div class="project">
+    <h5><b>FABRIC DEFECT DETECTION SYSTEM</b></h5>
+    <p>
+      <b>Last Updated:</b> December 03, 2018
+      <br>
+      This was our final year project in University of Moratuwa. Fabric
+      defect detection is a significant phase of quality control in textile industry. Manual defect inspection lacks the
+      accuracy and the labor cost is high. Automating this process is challenging due to a large number of fabric types
+      and defect types. Defect detection relies on the identification of regions that are different from the uniform
+      background. Our intention is to develop a system to detect defects in uniform textured fabrics with Image
+      Processing techniques and Neural Networks. The results indicated that the use of light beams based on the color of
+      the material is more effective than the white light beam.
+    </p>
+    <b>Demonstration:</b>
+    <div class="article-responsive-video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/QVFb9WUMkk4" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen=""></iframe>
+    </div>
+    <div style="margin-top:25px">
+      <p>
+        <b>Technologies:</b> NodeJS, AngularJS, PWM, Raspberry Pi, Web Sockets, OpenCV, C++,
+            CNN, Keras, Tensorflow<br><b>Github Links:</b>
+        <a href="https://github.com/vibs94/Automated_Fabric_Defect_Detectiond"
+           style="word-break: break-all">https://github.com/vibs94/Automated_Fabric_Defect_Detection</a>
+        <br>
+        <br>
+        Fabric defect can be defined as imperfections in fabric. The fabric is produced by weaving yarns in a knitting machine to
+        form a textured material in a weaving mill. Quality of the fabric is affected by yarn quality. In weaving machine,
+        defects can be occurred during the weaving process due to irregularities in yarn tension resulted by changes in
+        operating conditions. There are vast number of defect types in the textile industry. Abnormalities in weaving
+        process can lead to produce an entire new class of defects. Vertical lines, horizontal lines, isolated defects,
+        pattern defects, finishing defects and printing defects are the main types of defects. Out of them, our research
+        has done on categories of vertical lines, horizontal lines, and isolated defect. These three defect categories
+        include the most common defects such as slub, burl, holes, oil spots, and knots.
+      </p>
+      <p>
+        <b>Research Objectives</b>
+        <br>
+        The main objective of this research would be to develop a system to detect the
+        fabric defects automatically.
+        <a href="https://www.researchgate.net/publication/328281589_Automated_Fabric_Defect_Detection" target="_newtab"
+          style="font-weight:bold">Read our research papers to get more informations about the project.</a>
+        The following objectives also were achieved along with the main objective.
+      </p>
+      <ul>
+        <li><b>Design a suitable image acquisition technique:</b></li>
+        High quality image is required to detect defects. We capture images using a 8MP camera to identify defected
+        areas accurately. Image quality drastically changes with the lighting condition. Therefore, it is important to
+        set up a proper lighting condition which is stable and uniform. We have used a RGB LED panel with PWM to control
+        lighting and produce a light beam of any color. We well positioned the camera to capture an edge to edge image
+        of the fabric.
+        <li><b>Identify suitable image pre-processing techniques:</b></li>
+        Some fabric types are highly luminous and reflective. Therefore, we do gamma correction in the preprocessing
+        stage. We use noise cancellation techniques to remove unwanted noise. Brightness and contrast adjustments will
+        also be used after image is acquired. Once preprocessing operations are applied, a binary image is produced with
+        less noise and higher visibility of defects compared to the image captured.
+        <li><b>Develop a suitable defect detection schema:</b></li>
+        Binary image of the fabric is obtained after image acquisition and preprocessing stages. We developed and
+        execute sophisticated algorithms to identify defects accurately and efficient. We have a trained classifier to
+        classify defects. If the fabric is not confidently belongs into any class of defects, the fabric is identified
+        as faultless.Binary image of the fabric is obtained after image acquisition and preprocessing stages. We
+        developed and execute sophisticated algorithms to identify defects accurately and efficient. We have a trained
+        classifier to classify defects. If the fabric is not confidently belongs into any class of defects, the fabric
+        is identified as faultless.
+        <li><b>Implement a suitable defect classification schema:</b></li>
+        We are planning implement a defect detection schema for three common defect types. Trained classifier designed
+        using Keras is used to classify the defects into appropriate category. We have used over 400 data samples to
+        train the module. Defect schema is based on the major characteristics of these defect types. Identified defects
+        in the fabric will be allocated to the suitable category.
+        <li><b>Locate the defects with defect type:</b></li>
+        The location of the defect is obtained after a defect is detected. Location of the fabric can be calculated by
+        specifying the speed of the moving fabric. Speed of capturing images should also vary with the speed of fabric
+        roller. A statistical report of all detected defects will be generated indicating the defect types and
+        locations. Organization can use those statistical data to grade the fabric into different levels depending on
+        the quality.
+      </ul>
+      <p><b>Image Acquisition</b><br>Image Acquisition is the initial step of the automated fabric defect detection
+        process. In the manual process the workers used a specific instruments to observe the fabric and identify
+        defects. There are three (3) main components in the image acquisition system. They are,</p>
+      <ul>
+        <li><b>Lighting System</b></li>
+        From the above mentioned, challengers it is obvious that having a good lighting system is vital for a better
+        image acquisition system. A better lighting system will simplify the preprocessing of the acquired image.
+        <li><b>Camera System</b></li>
+        Camera system plays a vital role in the image acquisition system. Since the images are captured of a moving
+        fabric there is a possibility of blurring the image.
+      </ul>
+      <img src="./assets/blog/projects/project-01/fabricdefectdetection10.jpg" width="350px"
+           style="margin-left: 40px"
+           class="img-responsive fabric-project-image">
+      <ul>
+        <li><b>Controlling Unit</b></li>
+        The controlling unit is responsible for the controlling of the camera system, controlling the lighting system
+        and communicating with the host computer. Basically an embedded system will be used as the controlling unit.
+        With this controlling unit the lighting conditions of the environment can be controlled.
+      </ul>
+      <img src="./assets/blog/projects/project-01/fabricdefectdetection11.jpg" width="350px"
+           style="margin-left: 40px"
+           class="img-responsive fabric-project-image">
+      <p>
+        <b>Feature Extraction</b>
+        <br>
+        Feature extraction is one of a key process to achieve better accuracy in defect
+        classification. There are many ways in image processing which we can use to pre-process an image for our
+        requirement. Our objective is to find an optimum solution to increase the overall process speed.
+        <br>The accuracy
+        of the defect classification process is mainly depending on the image pre-processing. If the background removal
+        is success with less amount of noise, classification results have higher confidence for the identified defects
+        in the pre-processed image.
+        <br>
+        <br>
+        Production line is continuously moving through the embedded device whenever
+        the process start. Then the camera will continuously be capturing and taking frames for the moving fabric. Each
+        frame has to be pre-processed before send them to the classification process. Hence, the accuracy of the results
+        will depend on the preprocessing steps. We have completed several researches as to remove the background from
+        the image except the defect, reduce the impact from the noise and etc.
+        <br>
+        <br>After taking the images, they can
+        be directly sent to the preprocessor for background removal. But due to the noise, result image will not clear
+        as we expect. In such cases, accuracy of the classification process will be a less value. As a solution,
+        preprocessor will apply smoothing to the captured images. Soothing will apply filters to the image and makes it
+        blur compared to the original image. But it will not affect to the image features. Original image is taken from
+        the embedded device under the illumination corrections. Since the background light is same as the fabric color,
+        we can find a range for the red, blue and green intensities in the captured image. According to the definition,
+        defects are any imperfection within the fabrics. Therefore, channel intensities of the defected areas are
+        different compared to the channel intensities of the original fabric image. If system capture the image under
+        different background color, there are more than one peak values for a single color channel. So, it will be very
+        hard to remove the background from the captured image. Because of these image acquisition process, it will
+        highlight any defected areas in the fabric if exist.
+      </p>
+      <table class="table" style="text-align: center; width: 50%">
+        <thead>
+        <tr>
+          <th style="text-align:center">Original Image</th>
+          <th style="text-align:center">Pre-Processed Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><img src="./assets/blog/projects/project-01/fabricdefectdetection6.jpg"
+                   width="150px" class="img-responsive fabric-project-image"></td>
+          <td><img src="./assets/blog/projects/project-01/fabricdefectdetection7.jpg"
+                   width="150px" class="img-responsive fabric-project-image"></td>
+        </tr>
+        <tr>
+          <td><img src="./assets/blog/projects/project-01/fabricdefectdetection8.jpg"
+                   width="150px" class="img-responsive fabric-project-image"></td>
+          <td><img src="./assets/blog/projects/project-01/fabricdefectdetection9.jpg"
+                   width="150px" class="img-responsive fabric-project-image"></td>
+        </tr>
+        </tbody>
+      </table>
+      <p>
+        <b>Defect Classification</b>
+        <br>
+        Defect classification is the final and most important part of the system.
+        Images at the end of the feature extraction process needs to be classified according to its defect type.
+        Different performance metrics can be considered to measure the performance of the classifier. Classification
+        accuracy, model complexity and training time are considered as three most important performance metrics for an
+        automated fabric defect inspection system.
+        <br>
+        <br>
+        <b>Convolutional neural networks:</b>
+        <br>
+        We developed a
+        classifier with the use of “convolutional neural networks (CNN)”. “CNNs” are used to do this classification
+        because it`s convolutional layers(neurons) are good at classifying image features. First, we need to create a
+        model and train it with pre-classified image dataset. Then classify each image with the trained model. This is a
+        multi-label classification problem, since input image can be classified into more than two classes (hole defect,
+        vertical line defect, horizontal line defect). Developing appropriate model for this classification task and
+        generating the data set to train the model were the major challenges we had.
+        <br>
+        <br>
+        For this classification
+        problem we used VGGNet as the neural network architecture. VGGNet is a neural network architecture that
+        performed very well in the Image Net Large Scale Visual Recognition Challenge (ILSVRC) in 2014. It scored first
+        place on the image localization task and second place on the image classification task. This was found by two
+        researchers at Oxford. The most important thing about this model is, besides its capability of classifying
+        objects in photographs, the model weights are freely available and can be loaded and used in other models and
+        applications. VGG architecture is quite simple. Only 3x3 convolution and 2x2 pooling are used throughout the
+        whole network. VGG also shows that the depth of the network plays an important role. We can meet 90% accuracy
+        with just 5 layers. And accuracy gets incremented with the number of hidden layers.
+        <br>
+        <br>
+        <b>Metrix to reduce
+          overfitting the model:</b>
+      </p>
+      <ul>
+        <li><b>Use data augmentation:</b></li>
+        We used data augmentation to generate more images. Data augmentation has done via a number of random
+        transformations such as,
+        <ul>
+          <li><b>rotation_range :</b> a range within which to randomly rotate pictures</li>
+          <li><b>width_shift and height_shift :</b> ranges (as a fraction of total width or height) within which to
+            randomly translate pictures vertically or horizontally.
+          </li>
+          <li><b>shear_range:</b> randomly applying shearing transformations.</li>
+          <li><b>zoom_range :</b> randomly zooming inside pictures</li>
+          <li><b>horizontal_flip and vertical_flip :</b> randomly flipping half of the images horizontally/vertically
+            (relevant when there are no assumptions of horizontal/vertical asymmetry)
+          </li>
+          <li><b>fill_mode :</b> filling in newly created pixels, which can appear after a rotation or a width/height
+            shift.
+          </li>
+        </ul>
+        <li><b>Add regularization (dropout):</b></li>
+        Dropout deletes a random sample of the activations (makes them zero) in training. In our model dropout is only
+        applied in the fully connected layers at the end of each layer. The down side of using dropout is, this causes
+        information to get lost. If some data is missing in the first layer, it gets lost for the whole network.
+        Therefore, we started with a low dropout in the first layer (0.20) and gradually increased it by 0.1 at each
+        deep layer.
+      </ul>
+      <div class="col-lg-12">
+        <div class="col-lg-6 fabric-project-image-horizontal-group"><img
+          src="./assets/blog/projects/project-01/fabricdefectdetection4.jpg" width="150px"
+          class="img-responsive fabric-project-image"></div>
+        <div class="col-lg-6 fabric-project-image-horizontal-group"><img
+          src="./assets/blog/projects/project-01/fabricdefectdetection5.jpg" width="140px"
+          class="img-responsive fabric-project-image"></div>
+      </div>
+      <ul>
+        <li><b>Batch normalization:</b></li>
+        Batch normalization adds a ‘normalization layer’ after each convolutional layer. This allows the model to
+        converge much faster in training and therefore also allows to use higher learning rates. With batch
+        normalization the model learns that it can adjust all the weights instead of one each time.
+      </ul>
+      <p><b>Activation function:</b><br>After calculating the values for each of the neurons in the Neural Network,
+        these values go through an activation function. Activation function decides whether to activate the neurons in
+        the next layer or not. First, we used ‘Sigmoid’ as our activation function and obtained 77% accurately trained
+        model. After that we used ‘ReLu’ activation function and obtained 90% accuracy. The main reasons for this is
+        that ‘ReLu’ reduces the likelihood of a vanishing gradient and sparsity. The last layer of the model uses a
+        ‘Sigmoid’ activation function, because this layer must provide a certain output (class label). Image_sig
+        Image_ra</p>
+      <div class="col-lg-12">
+        <div class="col-lg-6 fabric-project-image-horizontal-group"><img
+          src="./assets/blog/projects/project-01/fabricdefectdetection2.jpg" width="350px"
+          class="img-responsive fabric-project-image"></div>
+        <div class="col-lg-6 fabric-project-image-horizontal-group"><img
+          src="./assets/blog/projects/project-01/fabricdefectdetection3.jpg" width="350px"
+          class="img-responsive fabric-project-image"></div>
+      </div>
+      <p><b>Loss Function:</b><br>Loss function is an important part in artificial neural networks, which is used to
+        measure the inconsistency between predicted value (^y) and actual label (y). It is a non-negative value, where
+        the robustness of model increases along with the decrease of the value of loss function. In our problem we have
+        used “binary_crossentropy” as our loss function rather than using “categorical_crossentropy”. Because we need to
+        treat each output label as an independent Bernoulli distribution since each picture frame is independent from
+        ‘time’ axis.<br><br><b>Training the model:</b><br>We have trained our model with 50 Epoch. While learning, we
+        randomly divided training set and validation set as 80% and 20% in each round. Observed variation of value
+        accuracy, value loss, train accuracy and train loss over 50 epochs are shown below.</p><img
+        src="./assets/blog/projects/project-01/fabricdefectdetection1.jpg" width="350px"
+        class="img-responsive fabric-project-image"></div>
+  </div>
+</div>

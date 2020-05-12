@@ -1,0 +1,304 @@
+<div class="container" style="margin-top: 25px">
+  <div class="article">
+    <h4><b>How to host NodeJS Express server on Alwaysdata.net</b></h4>
+
+    <p>
+      <b>Last Updated:</b> September 22, 2018
+      <br>
+    </p>
+
+    <p>
+      <span style="font-weight: bold; font-size: 16px">1. Create NodeJS Express Server</span>
+      <br>
+      First off, we have to
+      install Express. For creating an app, we should always install it locally. This will allow us to use different
+      express version for each app we make. Installing express globally will allow us to use the express command line
+      utility to create boilerplate code and stuff. So ideally, we should install express in both places, but make sure
+      the app you develop run on the local version. In this article, we are going to install express globally and use the
+      express commandline utility to create a new project. We can use
+      <code>npm install -g express</code> command to
+      install express globally,
+    </p>
+
+    <div class="col-xs-12 article1-code">
+      <code class="col-xs-12" style="border: 1px solid black">
+        D:\&gt;npm install -g express
+        <br>
+        + express@4.16.3
+        <br>
+        updated 5 packages in 13.578s
+      </code>
+    </div>
+
+    <p>
+      Now you can create a express application using express commands. Use the
+      <code>express HelloWorld</code>
+      command to create a new project, 'HelloWorld'. It'll creates an Express app named HelloWorld.
+      The app will be created in a folder named HelloWorld in the current working directory.
+      We can go to the 'HelloWorld' directory using the
+      <code>cd HelloWorld</code> command.
+    </p>
+
+    <div class="col-xs-12 article1-code">
+      <code class="col-xs-12">
+        D:\&gt;express HelloWorld
+        <br><br>warning: the default view engine will not be jade in future releases
+        <br>warning: use `--view=jade' or `--help' for additional options
+        <br><br><br>create : HelloWorld\
+        <br>create : HelloWorld\public\
+        <br>create : HelloWorld\public\javascripts\
+        <br>create : HelloWorld\public\images\
+        <br>create : HelloWorld\public\stylesheets\
+        <br>create : HelloWorld\public\stylesheets\style.css
+        <br>create : HelloWorld\routes\
+        <br>create : HelloWorld\routes\index.js
+        <br>create : HelloWorld\routes\users.js
+        <br>create : HelloWorld\views\
+        <br>create : HelloWorld\views\error.jade
+        <br>create : HelloWorld\views\index.jade
+        <br>create : HelloWorld\views\layout.jade
+        <br>create : HelloWorld\app.js
+        <br>create : HelloWorld\package.json
+        <br>create : HelloWorld\bin\
+        <br>create : HelloWorld\bin\www
+        <br><br>change directory:
+        <br>&gt;cd HelloWorld
+        <br><br>install dependencies:
+        <br>&gt; npm install
+        <br><br>run the app:
+        <br>&gt; SET DEBUG=helloworld:*&amp; npm start
+        <br><br><br>D:\&gt;cd HelloWorld
+        <br><br>D:\HelloWorld&gt;
+      </code>
+    </div>
+
+    <p>
+      'package.json' contain all the dependencies required to run our application. we can install them using the
+      <code>npm install</code> command.
+      It'll install all the dependencies to the local node_modules folder.
+    </p>
+
+    <div class="col-xs-12 article1-code">
+      <code class="col-xs-12">
+        D:\HelloWorld&gt;npm install
+        <br>npm WARN deprecated jade@1.11.0: Jade has been renamed to pug, please install the latest version of pug
+        instead of jade
+        <br>npm WARN deprecated constantinople@3.0.2: Please update to at least constantinople 3.1.1
+        <br>npm WARN deprecated transformers@2.1.0: Deprecated, use jstransformer
+        <br>npm notice created a lockfile as package-lock.json. You should commit this file.
+        <br>added 102 packages in 14.89s
+        <br>
+      </code>
+    </div>
+
+    <p>
+      Now, we can run our application and test it on web browser. We can use
+      <code>npm start</code> to run a express server and it'll run on default port 3000.
+    </p>
+
+    <div class="col-xs-12 article1-code">
+      <code class="col-xs-12">
+        D:\HelloWorld&gt;npm start
+        <br><br>&gt; helloworld@0.0.0 start D:\HelloWorld
+        <br>&gt; node ./bin/www
+      </code>
+    </div>
+
+    <p>
+      If we done all the steps correctly, we can open a web browser and navigate to
+      <a href="http://localhost:3000/" target="_newtab">http://localhost:3000/</a>,
+      we can see a message from express server.
+      <br><br><span style="font-weight: bold; font-size: 16px">2.Configure port and create alwaysdata account</span>
+      <br>
+      Now we just created a simple express server. Lets see how we should host it on alwaysdata servers. for that we have to
+      change application's default port from 3000 to alwaysdata server's port. Open the file, 'www' located at the
+      <code>HelloWorld/bin</code>
+      folder. This file contains the configurations for our application server. Find the following line which says to use
+      3000 as the port.
+    </p>
+
+    <div class="col-xs-12" style="margin-bottom: 10px">
+      <code class="col-xs-12" style="border: 1px solid black">server.listen(port);</code>
+    </div>
+
+    <p>
+      Comment above code line and type the below code segment. This code tells application server to use whatever the
+      port provided by the alwaysdata server.</p>
+
+    <div class="col-xs-12 article1-code" style="margin-bottom: 10px">
+      <code class="col-xs-12" >
+        //server.listen(port);
+        <br>server.listen(
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;process.env.ALWAYSDATA_HTTPD_PORT,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;process.env.ALWAYSDATA_HTTPD_IP,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;function()&#123;
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('HelloWorld server is started!');
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;
+        <br>);
+      </code>
+    </div>
+
+    <p>
+      Now, we have completed our server for hosting. We have to create a free account at
+      <a href="https://www.alwaysdata.com/en/signup/" target="_newtab">alwaysdata.net</a>.
+      You will have to provide your email address, password, phone number (optional), address, zip-code,
+      city and country in the sign up page. We'll select 'Private Individual' as the account type in this article.
+      After that, we have to fill alwaysdata account settings. We'll use following configurations for this article.
+      <br><br>
+      <b>Account Name: HelloWorld</b><br>
+      <i>(The account name determines in particular the address of the subdomain that you will be awarded. For example, if the
+        name is HelloWorld, your subdomain will be http://HelloWorld.alwaysdata.net.)
+      </i>
+      <br>
+      <b>Product: Pack gratuit (100 Mo)</b>
+      <br>
+      <b>Payment frequency: 1 year[s]</b>
+      <br>
+      <b>Location: Paris 1[France]</b>
+      <br><br>
+      Since other fields are optional, we'll left them blank and create the account.
+      Lets see how we should setup our application server in this alwaysdata server.
+      <br><br>
+      <span style="font-weight: bold; font-size: 16px">3. Transfer files to the server</span>
+      <br>
+      On the left hand side, click on <b>FTP</b> under <b>Remote access</b>. We can see a default <b>FTP</b>
+      name is created already. Click on <i class="fa fa-cog"></i> to edit it and set a password in the password field.
+      Click on <b>Submit</b> button to save the changes.
+      <br><br>
+      Now, we have to transfer our project files to the alwaysdata server. For that. we have to use
+      File Transfer software. In this article, we'll use
+      <a href="https://filezilla-project.org/download.php?" target="_newtab"><b>FileZilla</b></a>.
+    </p>
+
+    <div class="col-lg-12" style="text-align: center; margin-bottom: 10px">
+      <img src="./assets/blog/articles/article-01/article1_file_zilla.png" class="img-responsive article-large-images">
+    </div>
+
+    <p>
+      <i>Here is a quick introduction: Below the toolbar (1) and quick connect bar (2), the message log (3) displays
+      transfer and connection related messages. Below, you can find the file listings. The left column (local pane, 4)
+      displays the local files and directories, i.e. the stuff on the PC you're using FileZilla on. The right column
+      (server pane, 5) displays the files and directories on the server you are connected to. Both columns have a
+      directory tree at the top and a detailed listing of the currently selected directory's contents at the bottom. You
+      can easily navigate either of the trees and lists by clicking around like in any other file manager. At the bottom
+      of the window, the transfer queue (6) lists the to-be-transferred and already transferred files.</i>
+    </p>
+
+    <p>
+      On the left hand side of the alwaysdata dashboard, click on FTP under Remote access. and note-down,
+      <br>
+      FTP host:<b>ftp-helloworld123.alwaysdata.net</b>
+      <br>
+      Name: <b>helloworld123</b>
+      <br>
+      Password: <b>(FTP Password)</b>
+      <br>On the filezilla software focus to the <b>quick connect bar (2)</b>. Type these information and click on
+      <b>Quickconnect</b>. It'll connect to the server and establish a FTP connection. If we did all correct, we'll see
+      following messages on the filezilla console.
+    </p>
+
+    <div class="col-xs-12 article1-code" style="margin-bottom: 10px">
+      <code class="col-xs-12">
+        Status: Resolving address of ftp-helloworld.alwaysdata.net
+        <br>Status: Connecting to 185.31.40.91:21...
+        <br>Status: Connection established, waiting for welcome message...
+        <br>Status: Initializing TLS...
+        <br>Status: Verifying certificate...
+        <br>Status: TLS connection established.
+        <br>Status: Logged in
+        <br>Status: Retrieving directory listing...
+        <br>Status: Directory listing of "/" successful
+        <br>
+      </code>
+    </div>
+
+    <p>
+      On the right column (server pane, 5) of the filezilla, click on the <b>www</b> folder. Create a folder, '<b>HelloWorld</b>'
+      to store our local files. Double click on that folder to go inside. On the left column (local pane, 4) of the
+      filezilla, navigate to the directory where we create our project. Have a look at the following image.
+    </p>
+
+    <div class="col-lg-12" style="text-align: center; margin-bottom: 10px;">
+      <img src="./assets/blog/articles/article-01/article2_file-zilla-config.jpg"
+           class="img-responsive article-large-images">
+    </div>
+
+    <p>Select all the folders from the left column (local pane, 4) of the filezilla except '<b>node_modules</b>' and drag
+      them into the right column (server pane, 5) of the filezilla. We can see, file transfering logs on the bottom. '<b>node_modules</b>'
+      folder can be a lage folder and it contains lots of files. To transfer '<b>node_modules</b>' folder, it'll take huge
+      time. so we skip it and lets see how we are going to solve that issue.
+      <br><br>
+      <span style="font-weight: bold; font-size: 16px">4. Install package files on the server</span>
+      <br>
+      On the left hand side of the alwaysdata dashboard, click on <b>SSH</b> under <b>Remote access</b>.
+      We can see a default <b>SSH</b> name is created already. Click on
+      <i class="fa fa-cog"></i> to edit it and set a password in the password field. Enable '<b>Enable
+        password login</b>' option and Click on <b>Submit</b> button to save the changes.
+      <br>
+      Now, we'll see 'SSH host: ssh-helloworld123.alwaysdata.net (also Web accessible)' line on the top of the page.
+      Click on '<b>Web</b> and it'll open the online shell. We can use our SSH username and password to login.
+      move to the project folder, 'HelloWorld' and run <code>npm install</code>.
+      If we done correctly, we'll see following logs.
+    </p>
+
+    <div class="col-xs-12 article1-code">
+      <code class="col-xs-12">
+        ssh3 login: helloworld
+        <br>Password:
+        <br>Last login: Sat Sep 22 13:06:56 CEST 2018 from 112.134.123.39 on pts/8
+        <br>Linux ssh3 4.14.71-alwaysdata #1 SMP Thu Sep 20 07:08:35 UTC 2018 x86_64
+        <br><br>=====
+        <br>RULES
+        <br>=====
+        <br>
+        <br>1. Do not start long running processes (daemons, bots, etc.)
+        <br>2. Do not connect to IRC
+        <br>3. Don't take up too many resources (CPU, RAM, IO)
+        <br>
+        <br>helloworld@ssh3:~$ ls
+        <br>admin www
+        <br>helloworld@ssh3:~$ cd www/
+        <br>helloworld@ssh3:~/www$ ls
+        <br>HelloWorld index.html
+        <br>helloworld@ssh3:~/www$ cd HelloWorld/
+        <br>helloworld@ssh3:~/www/HelloWorld$ npm install
+        <br>added 102 packages in 2.217s
+        <br>helloworld@ssh3:~/www/HelloWorld$
+      </code>
+    </div>
+
+    <p>
+      <b>Note:</b>
+      <i>If you see an error when running <code>npm install</code>. On the left side of the alwaysdata
+      dashboard, click on <b>Node.js</b> under <b>Environment.</b> Select the Node.js version to <b>8.10.0</b> version and
+      try again. If the issue still exist, correct the Node.js version and try again. It'll fix the
+      problem</i>
+      <br><br>
+      <span style="font-weight: bold; font-size: 16px">5. Set the url for the server</span>
+      <br>
+      On the left side of the alwaysdata dashboard, click on <b>Sites</b> under <b>Web</b>. We can see a default address is
+      created for our server. Click on <i class="fa fa-cog"></i> to edit it. For this article update the following values.
+      <br><b>Name: HelloWorldSite</b>
+      <br><i>(The name is only for information purposes and is only used for display.)</i>
+      <br><b>Addresses: helloworld.alwaysdata.net</b>
+      <br><i>(We have to use the account name for the first part of our url. Since we are
+        using free version we have to use alwaysdata domain.)</i>
+      <br><b>Configuration</b>
+      <br><b>Type: Node.js</b>
+      <br><b>Node.js version: Default version</b>
+      <br><b>Command: npm start</b>
+      <br><b>Working directory: www/HelloWorld/</b>
+      <br>Click on the <b>Submit</b> bnutton to save the configurations and redirect to the
+      <a href="http://helloworld.alwaysdata.net" target="_newtab">http://helloworld.alwaysdata.net</a>.
+      Now we are succeefully hosted our local server on the alwaysdata.net server.
+      <br>Feel free to
+      <a href="/contact">contact me</a> if you have any questions or clarifications about the article.
+      <br><br><span style="font-weight: bold; font-size: 16px">Video tutorial:</span><br>
+    </p>
+
+    <div class="article-responsive-video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/zzwdLrSNgJw?rel=0" frameborder="0"
+              allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+    </div>
+  </div>
+</div>

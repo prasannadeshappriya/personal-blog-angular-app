@@ -1,0 +1,9 @@
+.contact-header {
+  width: 100%;
+  text-align: center;
+}
+
+.bg-d-image-fixed {
+  background-attachment: fixed!important;
+  background-size: cover!important;
+}

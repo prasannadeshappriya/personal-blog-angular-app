@@ -1,0 +1,56 @@
+<div class="container-fluid bg-d-image-fixed" style="position: absolute; width: 100%; height: 400px; overflow: hidden">
+  <img src="https://www.collab2.co.za/wp-content/uploads/2017/06/contact-us-background.jpg"
+       style="position: absolute; z-index: -1; left: 0; width: 100%" class=""/>
+</div>
+<div class="container" style="color: white">
+  <div class="row" style="margin: 50px">
+    <h4 class="contact-header">GET IN TOUCH</h4>
+    <h5 class="contact-header">Need additional information or have a question or comment?
+      Please feel free <br> to leave a message, and I'll get back to you as soon as possible.</h5>
+  </div>
+  <div class="row" style="margin-top: 50px; margin-bottom: 50px">
+
+  <mat-card class = "tp-card mat-elevation-z16" style="width: 85%; padding: 30px; margin: 0 auto">
+    <mat-card-content>
+      <form>
+        <div *ngIf="isShowSuccessMessage" class="alert alert-success" role="alert">
+          Your information successfully submitted. You will be contacted soon!!
+        </div>
+        <div *ngIf="isShowErrorMessage" class="alert alert-danger" role="alert">
+          There was an error while submitting your information. Please try again!
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6" style="padding: 10px">
+            <label for="lblFirstName">First Name</label>
+            <input [(ngModel)]='lblFirstName' [disabled]="isLoading" name="lblFirstName" type="text" class="form-control" id="lblFirstName" placeholder="First Name">
+          </div>
+          <div class="form-group col-md-6" style="padding: 10px">
+            <label for="lblLastName">Last Name</label>
+            <input [(ngModel)]='lblLastName' [disabled]="isLoading" name="lblLastName" type="text" class="form-control" id="lblLastName" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6" style="padding: 10px">
+            <label for="lblEmail">Email</label>
+            <input [(ngModel)]='lblEmail' [disabled]="isLoading" name="lblEmail" type="email" class="form-control" id="lblEmail" placeholder="Email">
+          </div>
+          <div class="form-group col-md-6" style="padding: 10px">
+            <label for="lblTelephonee">Telephone</label>
+            <input [(ngModel)]='lblTelephone' [disabled]="isLoading" name="lblTelephone" type="text" class="form-control" id="lblTelephonee" placeholder="Telephone">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12" style="padding: 10px">
+            <label for="lblComment">Comment</label>
+            <textarea [(ngModel)]='lblComment' [disabled]="isLoading" name="lblComment" class="form-control" id="lblComment" style="height: 170px"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 210px; display: block; margin: 0 auto" [disabled]="isLoading"
+          (click)="sendEmail()">
+            <span *ngIf="isLoading" class="material-icons" style="vertical-align: middle">hourglass_empty</span>
+            Sign in</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  </div>
+</div>

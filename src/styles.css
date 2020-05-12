@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+}
+
+.bg-background-image-fixed {
+  background-attachment: fixed!important;
+  background-size: cover!important;
+}
+
+.bg-page-top-margin {
+  margin-top: 25px;
+}
+
+.bg-page-bottom-margin {
+  margin-top: 25px;
+}
+
+.bg-content-center {
+  display: block;
+}
+
+.bg-content-center h1, .bg-content-center h2, .bg-content-center h3, .bg-content-center h4,
+.bg-content-center h5, .bg-content-center h6, span, a, p {
+  text-align: center;
+}
+
+.bg-content-button {
+  display: block !important;
+  margin: 0 auto !important;
+}

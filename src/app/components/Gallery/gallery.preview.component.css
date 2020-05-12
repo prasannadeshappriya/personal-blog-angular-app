@@ -1,0 +1,23 @@
+.img-preview {
+  max-height: 500px;
+}
+
+.bg-mat-dialog-action {
+  text-align: center;
+  display: block;
+  margin-bottom: -10px;
+}
+
+.bg-mat-dialog-btn {
+  width: 250px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .img-preview {
+    width: 100%;
+  }
+  .bg-mat-dialog-btn {
+    width: 90px;
+  }
+}
+

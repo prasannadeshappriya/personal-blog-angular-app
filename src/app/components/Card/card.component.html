@@ -1,0 +1,19 @@
+<mat-card class = "tp-card mat-elevation-z{{cardElevation}} bg-main-card"
+          [routerLink]="isClickable ? cardNavigatePath : null"
+          [ngStyle]="{'margin-top': isEnableMarginTop ? '0' : '', 'cursor': isClickable ? 'pointer' : ''}"
+
+          (mouseenter)="onMouseEnter()" (mouseleave)="onMouseExit()">
+  <mat-card-header style="width: 100%; text-align: center; display: block">
+    <mat-card-title style="min-height: 60px"><b>{{cardTitle}}</b></mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src = "./assets/blog/{{cardImage}}"
+       alt = "{{cardTitle}}" style="height: 195px;">
+  <mat-card-content class="bg-card-content">
+    <p><b>Last Updated: </b>{{lastUpdatedDate}}</p>
+    <p class="content">{{cardContent}}</p>
+  </mat-card-content>
+  <mat-card-footer class="bg-card-content" style="margin-left: 0"
+    *ngIf="cardTechnologies != null">
+    <p><b>Technologies: </b>{{cardTechnologies}}</p>
+  </mat-card-footer>
+</mat-card>

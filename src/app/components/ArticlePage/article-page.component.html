@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row" style="">
+    <div *ngFor="let article of articleList; index as i"
+         class="col-lg-4" style="position: relative; margin-top: 25px;">
+      <card-item
+        [cardTitle]="article.title"
+        [cardImage]="article.imageName"
+        [cardNavigatePath]="article.navigationPath"
+        [cardContent]="article.content"
+        [cardTechnologies]="article.technologies"
+        [lastUpdatedDate]="article.lastUpdatedDate"
+        [isEnableMarginTop]="true"
+        [isClickable]="article.isContentMode"
+      ></card-item>
+    </div>
+  </div>
+</div>

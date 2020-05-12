@@ -1,0 +1,10 @@
+.home-image-gallery-section {
+  margin-top: -25px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-image-gallery {
+  margin-top: 25px;
+}
+

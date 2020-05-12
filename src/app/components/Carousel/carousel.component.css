@@ -1,0 +1,5 @@
+.bg-carousel-image {
+  width: 100% !important;
+  height: 400px !important;
+  object-fit:cover;
+}

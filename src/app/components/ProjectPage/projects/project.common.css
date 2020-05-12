@@ -1,0 +1,52 @@
+.project {
+  margin-bottom: 50px;
+}
+
+.project h5, .project p {
+  text-align: left
+}
+
+.fabric-project-image-horizontal-group {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.article-responsive-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.article-responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+}
+
+.project-2-img {
+  width: 50%;
+}
+
+.project-image-screenshot {
+  margin-top: 20px;
+  margin-right: 20px;
+  display: inline;
+}
+
+.project-03-screenshot {
+  text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+  .project-2-img {
+    width: 100%;
+  }
+
+  .project-03-screenshot {
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,103 @@
+<carousel
+  [carouselHeader]="'Welcome to My Blog!'"
+  [carouselText]="'Enjoy my blog!'">
+</carousel>
+<div class="container-fluid bg-background-image-fixed"
+     style="background-image: url('./assets/blog/images/background/WNaocO.jpg');">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="image_border_home"><img src="./assets/blog/images/official_image.jpg"
+                                              class="img-responsive home-image">
+            <div class="image_content">
+              <p>{{userDetails.name}}<br><span>{{userDetails.designation}}</span></p>
+              <p><span>{{userDetails.description}}</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-12">
+          <p class="home-content">
+            I'm Prasanna Deshappriya. I’m an undergraduate student from University of Moratuwa and currently
+            specializing ICE (Integrated Computer Engineering) stream, where we focus on both computer and hardware programming.
+            I'm an energetic and passionate programmer with the ability to work effectively as part of the team while adapting to
+            the cutting-edge technologies. Being a committed individual, I enjoy challenges and always curious about new
+            technologies in the world.
+            <br><br>
+            I'm a freelance developer since 2015 and responsible for different projects that may
+            go on simultaneously. I have more than four years of experience in Fiverr. As a freelance developer, I can work in a
+            particular or various domains depending on the client's requirement. Fiverr is an online marketplace for freelance
+            services. I have worked with many clients around the world while maintaining 100% customer satisfaction. I develop web
+            and desktop applications while providing integrations and remote services.
+            <br><br>
+            I was completed internship training
+            program at Eyepax IT Consulting (Pvt) Ltd. The program was offered by Training Division and Department of Computer
+            Science and Engineering, University of Moratuwa. Eyepax IT Consulting (Pvt) Ltd is a privately held IT company founded
+            in 2006. The company provides an array of software development services based on the latest client server, windows,
+            and web, wireless and Smartphone technologies. I worked with the development team and contributed to several research
+            project in an agile environment. In addition to technical work, I was a member of the company futsal team, member of
+            the winning team of pool competition and I was successfully completed the 10km LSR International Marathon.
+            <br><br>
+            In addition to my development work, I possess proven interpersonal and leadership skills that have been put to the good
+            use while working as a team. I like to play music instruments during my leisure time. Feel free to
+            <a href="/contact">contact</a>me for further information. You can <a href="/cv">view</a> or download my CV from below.
+            <br><br>
+            <a target="_self" href="./assets/blog/files/cv.pdfs" download="CV2020.pdf" class="btn btn-default" mat-button>
+              <i class="fa fa-download"></i> Download CV</a>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-page-top-margin" style="overflow: hidden">
+  <gallery></gallery>
+</div>
+<div class="container-fluid
+        bg-page-top-margin
+        bg-background-image-fixed
+        bg-home-best-article"
+        style="background-image: url('./assets/blog/images/background/shutterstock_381063385.jpg');">
+  <div class="container">
+    <div class="row bg-home-best-article-header">
+      <p>FEATURED ARTICLE</p>
+    </div>
+    <hr class="line" style="border: 2px solid white; width: 100px; margin-top: 30px; margin-bottom: 50px">
+    <div class="clearfix bg-content-center">
+      <h4>How to host NodeJS Express server on Alwaysdata.net</h4>
+      <h6 style="margin-top: 50px">
+        This article is about creating a simple express server and host it on alwaysdata servers.
+        Node.js allows for fast development ...
+      </h6>
+      <a href="/articles" mat-button mat-dialog-close style="margin-top: 30px !important; width: 150px;"
+         (click)="showArticlePage()"
+         class="mat-focus-indicator mat-flat-button mat-button-base mat-primary bg-mat-dialog-btn bg-content-button">READ ARTICLE
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container-fluid
+        bg-page-top-margin
+        bg-home-skills">
+  <div class="container">
+    <div class="row bg-home-best-article-header">
+      <h4 style="text-align: center">Skills</h4>
+    </div>
+    <hr class="line" style="border: 2px solid black; width: 100px; margin-top: 30px; margin-bottom: 50px">
+    <div class="clearfix bg-content-center">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+          <p style="text-align: left">
+            {{userSkillDetails.soft_skills}}
+            <br><br>
+             {{userSkillDetails.tech_skills}}
+          </p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+          <div class="col-lg-12" *ngFor="let skill of userSkillDetails.skill_set">
+            <p style="text-align: left;
+                margin-bottom: 5px;">{{skill.skill}}</p>
+            <mat-progress-bar style="height: 15px" mode="determinate" value="{{skill.value}}"></mat-progress-bar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
