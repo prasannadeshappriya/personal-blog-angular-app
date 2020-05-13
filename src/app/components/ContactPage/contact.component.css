@@ -7,3 +7,17 @@
   background-attachment: fixed!important;
   background-size: cover!important;
 }
+
+.contact-banner-image {
+  width: 100%;
+  height: auto;
+  transform: scaleX(1);
+}
+
+@media only screen and (max-width: 700px) {
+  .contact-banner-image {
+    height: 100%;
+    width: auto;
+    transform: scaleX(-1);
+  }
+}
