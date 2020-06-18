@@ -24,6 +24,7 @@ const routes: Routes = [
   {path: 'articles', component: ArticlePageComponent},
   {path: 'articles/host-nodejs-server', component: Article01Component},
   {path: 'contact', component: ContactComponent},
+  {path: 'sitemap.xml', redirectTo: 'sitemap.xml'},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}
 ];
