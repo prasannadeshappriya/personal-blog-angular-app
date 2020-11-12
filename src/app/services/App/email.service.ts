@@ -2,7 +2,7 @@ import {Injectable, OnInit} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, of, throwError} from "rxjs";
 import { catchError, map, tap } from 'rxjs/operators';
-import {BLOG_CONSTANTS} from "../../config/app.config.js"
+import { CONSTANTS } from "../../config/app.config.js"
 
 @Injectable()
 export class EmailService {
@@ -41,10 +41,10 @@ export class EmailService {
 
 
   init(): void {
-    if (BLOG_CONSTANTS.DEBUG_ENABLE) {
-      this.emailUrl = BLOG_CONSTANTS.EMAIL_SERVICE_DEBUG_URL;
+    if (CONSTANTS.DEBUG_ENABLE) {
+      this.emailUrl = CONSTANTS.URL_DOMAIN + CONSTANTS.EMAIL_SERVICE_DEBUG_URL;
     } else {
-      this.emailUrl = BLOG_CONSTANTS.EMAIL_SERVICE_URL
+      this.emailUrl = CONSTANTS.URL_DOMAIN + CONSTANTS.EMAIL_SERVICE_URL
     }
     console.log(this.emailUrl);
   }

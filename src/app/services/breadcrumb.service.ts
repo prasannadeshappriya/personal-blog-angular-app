@@ -13,7 +13,7 @@ export class BreadcrumbService {
   };
 
   constructor() {
-    console.log('BreadCrumb Service Initialized');
+    //console.log('BreadCrumb Service Initialized');
   }
 
   getBreadCrumbItemList(): Observable<any> {

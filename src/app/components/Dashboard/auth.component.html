@@ -1,0 +1,103 @@
+<div class="container-fluid auth-background-image">
+    <img src="./assets/auth/signup-bg.jpg"/>
+</div>
+<div class="container" style="color: white">
+  <div class="row" style="margin-top: 50px; margin-bottom: 50px">
+    <ng-template [ngIf]="isLoginProcess">
+      <mat-card class = "tp-card mat-elevation-z16 auth-mat-card">
+        <mat-card-content>
+          <form>
+            <div>
+              <img src="./assets/auth/logo-2.png" class="personal-blog"/>
+              <h2 class="auth-form-title">Login</h2>
+            </div>
+          
+            <div *ngIf="isShowSuccessMessage" class="alert alert-success alert-message" role="alert">
+              {{errorMessage}}
+            </div>
+            <div *ngIf="isShowErrorMessage" class="alert alert-danger alert-message" role="alert">
+              {{errorMessage}}
+            </div>
+            <div class="form-row custom-form-row">
+              <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+                <input [(ngModel)]='lblSignInEmail' [disabled]="isLoading" name="lblSignInEmail" type="email" 
+                  class="form-control custom-form-item" id="lblSignInEmail" placeholder="Email"
+                  >
+              </div>
+            </div>
+            <div class="form-row custom-form-row" style="margin-bottom: 30px;">
+              <div class="form-group col-md-12" style="padding: 10px;">
+                <input [(ngModel)]='lblSignInPassword' [disabled]="isLoading" name="lblSignInPassword" type="password" 
+                  class="form-control custom-form-item" id="lblSignInPassword" placeholder="Password">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary button-submit" [disabled]="isLoading"
+              (click)="signIn()">
+                <span *ngIf="isLoading" class="material-icons" style="vertical-align: middle">hourglass_empty</span>
+                Signin</button>
+          </form>
+          <p class="loginhere">
+            Do not Have an account ? <a (click)="redirect(true)" class="loginhere-link" style="cursor: pointer;">Register here</a>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+    <ng-template [ngIf]="!isLoginProcess">
+      <mat-card class = "tp-card mat-elevation-z16 auth-mat-card">
+        <mat-card-content>
+          <form>
+            <div>
+              <img src="./assets/auth/logo-2.png" class="personal-blog"/>
+              <h2 class="auth-form-title">Create account</h2>
+            </div>
+          
+            <div *ngIf="isShowSuccessMessage" class="alert alert-success alert-message" role="alert">
+              {{errorMessage}}
+            </div>
+            <div *ngIf="isShowErrorMessage" class="alert alert-danger alert-message" role="alert">
+              {{errorMessage}}
+            </div>
+            <div class="form-row custom-form-row">
+              <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+                <input [(ngModel)]='lblSignUpFirstName' [disabled]="isLoading" name="lblSignUpFirstName" type="text" 
+                  class="form-control custom-form-item" id="lblSignUpFirstName" placeholder="First Name">
+              </div>
+            </div>
+            <div class="form-row custom-form-row">
+              <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+                <input [(ngModel)]='lblSignUpLastName' [disabled]="isLoading" name="lblSignUpLastName" type="text" 
+                  class="form-control custom-form-item" id="lblSignUpLastName" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="form-row custom-form-row">
+              <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+                <input [(ngModel)]='lblSignUpEmail' [disabled]="isLoading" name="lblSignUpEmail" type="email" 
+                  class="form-control custom-form-item" id="lblSignUpEmail" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-row custom-form-row">
+              <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+                <input [(ngModel)]='lblSignUpPassword' [disabled]="isLoading" name="lblSignUpPassword" type="password" 
+                  class="form-control custom-form-item" id="lblSignUpPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-row custom-form-row" style="margin-bottom: 30px;">
+              <div class="form-group col-md-12" style="padding: 10px;">
+                <input [(ngModel)]='lblSignUpReTypePassword' [disabled]="isLoading" name="lblSignUpReTypePassword" type="password" 
+                  class="form-control custom-form-item" id="lblSignUpReTypePassword" placeholder="Repeat your password">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary button-submit" [disabled]="isLoading"
+              (click)="signUp()">
+                <span *ngIf="isLoading" class="material-icons" style="vertical-align: middle">hourglass_empty</span>
+                Register</button>
+          </form>
+          <p class="loginhere">
+            Have already an account ? <a (click)="redirect(false)" class="loginhere-link" style="cursor: pointer;">Login here</a>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </div>
+</div>
+  

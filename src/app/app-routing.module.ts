@@ -11,6 +11,9 @@ import {Project05Component} from "./components/ProjectPage/projects/project5/pro
 import {ArticlePageComponent} from "./components/ArticlePage/article-page.component";
 import {Article01Component} from "./components/ArticlePage/articles/article1/article-01.component";
 import {ContactComponent} from "./components/ContactPage/contact.component";
+import { AuthComponent } from './components/Dashboard/auth.component';
+import { DashboardComponent } from './components/Dashboard/dashboard.component';
+import { AuthGuard } from './utils/auth.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -24,14 +27,17 @@ const routes: Routes = [
   {path: 'articles', component: ArticlePageComponent},
   {path: 'articles/host-nodejs-server', component: Article01Component},
   {path: 'contact', component: ContactComponent},
+  {path: 'authanticate', component: AuthComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'sitemap.xml', redirectTo: 'sitemap.xml'},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({
+  providers: [AuthGuard],
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BreadcrumbComponent} from "./components/BreadCrumb/breadcrumb.component";
@@ -35,6 +35,12 @@ import {FormsModule} from "@angular/forms";
 import {ContactComponent} from "./components/ContactPage/contact.component";
 import {AlertDialogComponent} from "./components/Common/alert-dialog.component"
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {AuthComponent} from "./components/Dashboard/auth.component";
+import {DashboardComponent} from "./components/Dashboard/dashboard.component";
+import {MatMenuModule} from '@angular/material/menu';
+import { AuthService } from '../app/services/App/auth.service';
+import { ErrorInterceptor } from './utils/error.interceptor';
+import { JwtInterceptor } from './utils/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,9 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     ArticlePageComponent,
     Article01Component,
     ContactComponent,
-    AlertDialogComponent
+    AuthComponent,
+    AlertDialogComponent,
+    DashboardComponent
   ],
     imports: [
         HttpClientModule,
@@ -72,12 +80,17 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
         NgxExtendedPdfViewerModule,
         MatCardModule,
         MatFormFieldModule,
+        MatMenuModule,
         MatSelectModule,
         FormsModule,
         MatProgressBarModule
     ],
   entryComponents: [AlertDialogComponent],
-  providers: [],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [
     AppComponent,
     BreadcrumbComponent

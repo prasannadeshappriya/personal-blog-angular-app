@@ -1,0 +1,65 @@
+<div class="container">
+<form>
+    <div class="form-row custom-form-row">
+        <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+            <mat-card class = "tp-card mat-elevation-z16" style="width: 100%; padding: 30px; text-align: center;">
+                <div [ngStyle]="{'visibility': (isLoading || isError) ? 'visible' : 'hidden'}">
+                  <img src="./assets/images/Ripple-1s-200px.gif" *ngIf="isLoading" class="loading-image"/>
+                  <h5 *ngIf="!isLoading && isError" class="error-message" style="color: red;">
+                    {{errorMessage}}</h5>
+                </div>
+                <mat-card-content [ngStyle]="{'visibility': (isLoading || isError) ? 'hidden' : 'visible'}">
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    <p class = "tpbutton btn-toolbar" style="text-align:center; display: block;">
+                      <a class = "btn navbar-btn btn-primary" (click)="showPreviousChartData()" style="width: 90px; color: white;">Previous</a>
+                      <a class = "btn navbar-btn btn-primary" (click)="showNextChartData()" style="width: 90px; margin-left: 5px; color: white;">Next</a>
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;">
+            <mat-card class = "tp-card mat-elevation-z16" style="width: 100%; padding: 30px;">
+                <mat-card-content>
+                    <label for="birthday">Select starting date: </label>
+                    <input type="date" [(ngModel)]='startDateStr' id="birthday" name="birthday" style="margin-left: 20px;">
+                    <p style="text-align: left; margin-top: 20px; margin-bottom: 20px;">When users view the site, usage cound is being updated.
+                        This is the filter to the satistics data return from the database. (Only related to the chart)
+                        Website statistics will be loded from 
+                        <span style="font-weight: bold;">{{startDateStr}}</span> to <span style="font-weight: bold;">{{endDateStr}}.</span>
+                        Currently there are <span style="font-weight: bold;">{{totalStatRecordCount}}</span> stat records.</p>
+                    <button type="submit" class="btn btn-primary" style="width: 210px; display: block; margin: 0 auto" [disabled]="isLoading || isError"
+                        (click)="applyFilterAndRefresh()">Refresh</button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="form-group col-md-12" style="padding: 10px; margin-bottom: 0;" *ngIf="filterServiceData && filterServiceData.length>0">
+            <mat-card class = "tp-card mat-elevation-z16" style="width: 100%; padding: 30px;">
+                <mat-card-content>
+                    <h5 style="margin-bottom: 15px;">User view statistics</h5>
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Client IP</th>
+                            <th>Date</th>
+                            <th>View Count</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let chartItem of filterServiceData; index as i;">
+                            <td>{{chartItem.ip}}</td>
+                            <td>{{chartItem.date}}</td>
+                            <td>{{chartItem.stat}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p class = "tpbutton btn-toolbar" style="text-align:center; display: flex; flex-direction: row-reverse;">
+                        <a class = "btn navbar-btn btn-primary" (click)="showNext()" style="width: 90px; margin-left: 5px; color: white;">Next</a>
+                        <a class = "btn navbar-btn btn-primary" (click)="showPrevious()" style="width: 90px; color: white;">Previous</a>
+                      </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+      </div>
+</form>
+
+</div>

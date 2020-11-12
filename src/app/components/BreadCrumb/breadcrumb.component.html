@@ -14,6 +14,19 @@
         <li><breadcrumb-item [itemName]="'nav_cv'"></breadcrumb-item></li>
         <li><breadcrumb-item [itemName]="'nav_articles'"></breadcrumb-item></li>
         <li><breadcrumb-item [itemName]="'nav_contact'"></breadcrumb-item></li>
+        <li *ngIf="isAuthanticated"> 
+          <a class="bg-breadcrumb-item" mat-button [matMenuTriggerFor]="menu">Admin</a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item style="outline: none" (click)="router.navigate(['/dashboard']);">
+              <mat-icon>dashboard</mat-icon>
+              <span>dashboard</span>
+            </button>
+            <button mat-menu-item style="outline: none" (click)="logOut($event)">
+              <mat-icon>logout</mat-icon>
+              <span>logout</span>
+            </button>
+          </mat-menu>
+        </li>
       </ul>
     </div>
   </div>
