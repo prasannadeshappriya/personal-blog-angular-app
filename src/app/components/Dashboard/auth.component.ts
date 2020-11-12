@@ -96,10 +96,14 @@ export class AuthComponent implements OnInit{
         },
         error: error => {
           this.isShowErrorMessage = true;
-          if(error != null && error.status === 401) {
-            this.errorMessage = 'Email and password is not match. Please try again';
-          } else {
-            this.performError(error);
+          if(typeof error == "string") {
+            this.errorMessage = error;
+          }else{
+            if(error != null) {
+              this.errorMessage = 'Email and password is not match. Please try again';
+            } else {
+              this.performError(error);
+            }
           }
           this.isLoading = false;
           this.lblSignInPassword = '';
@@ -139,6 +143,14 @@ export class AuthComponent implements OnInit{
         password: this.lblSignUpPassword
       }
       user.password = btoa(user.password);
+      if(this.lblSignUpReTypePassword != user.password) {
+        this.isShowErrorMessage = true;
+        this.errorMessage = "Password is not match correctly";
+        this.isLoading = false;
+        this.lblSignUpPassword = '';
+        this.lblSignUpReTypePassword = '';
+        return;
+      }
       console.log(user);
       this.authService.postSignUp(user).subscribe({
         next: data => {
@@ -147,10 +159,14 @@ export class AuthComponent implements OnInit{
         },
         error: error => {
           this.isShowErrorMessage = true;
-          if(error != null && error.status === 409) {
-            this.errorMessage = 'User already exist for \'' + this.lblSignUpEmail + '\'';
-          } else {
-            this.performError(error);
+          if(typeof error == "string") {
+            this.errorMessage = error;
+          }else{
+            if(error != null && error.status === 409) {
+              this.errorMessage = 'User already exist for \'' + this.lblSignUpEmail + '\'';
+            } else {
+              this.performError(error);
+            }
           }
           this.isLoading = false;
           this.lblSignUpPassword = '';

@@ -1,6 +1,6 @@
 export const CONSTANTS = {
   DEBUG_ENABLE: false,
-  // URL_DOMAIN: 'http://localhost:3000/',
+  //URL_DOMAIN: 'http://localhost:3000/',
   URL_DOMAIN: 'https://prasanna.alwaysdata.net/',
 
   EMAIL_SERVICE_DEBUG_URL: 'api/send-email-debug',
