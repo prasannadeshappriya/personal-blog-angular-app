@@ -1,0 +1,15 @@
+<mat-card class = "tp-card mat-elevation-z{{cardElevation}} bg-main-card"
+    style="cursor: pointer;"
+    (click)="showVideo(videoSrc)"
+    (mouseenter)="onMouseEnter()" (mouseleave)="onMouseExit()">
+    <img mat-card-image src = "{{imageSrc}}"
+        alt = "card-title" style="height: 195px; object-fit: cover;">
+    <mat-card-content class="bg-card-content">
+        <p style="color: darkred;font-weight: bold;margin-bottom: -11px;">{{cardTitle}}</p>
+        <hr>
+        <p class="content">{{cardDesHeader}}</p>
+        <p style="font-size: 10px; margin-bottom: 30px;">{{cardDescription}}</p>
+        <p class="main-page-section-footer">By {{user}} / 
+            <i>{{duration}} months ago </i></p>
+    </mat-card-content>
+</mat-card>

@@ -14,6 +14,7 @@ import {ContactComponent} from "./components/ContactPage/contact.component";
 import { AuthComponent } from './components/Dashboard/auth.component';
 import { DashboardComponent } from './components/Dashboard/dashboard.component';
 import { AuthGuard } from './utils/auth.guard';
+import { VideoPageComponent } from './components/VideoPage/video-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'projects/train-schedule-app', component: Project04Component},
   {path: 'projects/slt-usage-meter-app', component: Project05Component},
   {path: 'articles', component: ArticlePageComponent},
+  {path: 'videos', component: VideoPageComponent},
   {path: 'articles/host-nodejs-server', component: Article01Component},
   {path: 'contact', component: ContactComponent},
   {path: 'authanticate', component: AuthComponent},

@@ -1,0 +1,49 @@
+<div class="container-fluid" style="padding: 0;">
+    <div style="background-color: black; height: 450px;">
+        <div class="container">
+            <div class="responsive-video">
+                <iframe width="560" height="315" [src]="videoSrc" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="">
+            <div class="col-lg-4 col-md-6" style="position: relative; margin-top: 25px;" 
+                *ngFor="let item of techVideos">
+                <video-card 
+                    [imageSrc]="item.imageUrl"
+                    [cardTitle]="item.title"
+                    [cardDesHeader]="item.subTitle"
+                    [cardDescription]="item.description"
+                    [videoSrc]="item.videoSrc"
+                    [user]="'admin'"
+                    [duration]="'1'"
+                    (previewCallBack)="playVideo($event)">
+                </video-card>
+            </div>
+        </div>
+
+        <video-section 
+            [dataObject]="gameSummeryVideos"
+            (previewCallBack)="playVideo($event)">
+        </video-section>
+        
+        <div class="row" style="">
+            <div class="col-lg-4 col-md-6" style="position: relative; margin-top: 25px;" 
+                *ngFor="let item of gameList">
+                <video-card 
+                    [imageSrc]="item.imageUrl"
+                    [cardTitle]="item.title"
+                    [cardDesHeader]="item.subTitle"
+                    [cardDescription]="item.description"
+                    [videoSrc]="item.videoSrc"
+                    [user]="'admin'"
+                    [duration]="'1'"
+                    (previewCallBack)="playVideo($event)">
+                </video-card>
+            </div>
+        </div>
+    </div>
+</div>

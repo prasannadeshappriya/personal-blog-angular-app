@@ -1,0 +1,33 @@
+.bg-main-card {
+    height: 100%;
+  }
+  
+  .bg-card-content p {
+    text-align: left;
+    margin-left: 5px;
+  }
+  
+  .bg-card-content .content {
+    font-size: 12px;
+  }
+  
+  
+  .mat-card{
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .mat-card-header {
+    flex-shrink: 0;
+  }
+  
+  .mat-card-content{
+    flex-grow: 1;
+    overflow: auto;
+  }
+  
+  .main-page-section-footer {
+    position: absolute;
+    bottom: 10px;
+    margin-top: 10px;
+  }

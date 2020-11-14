@@ -39,8 +39,6 @@ export class FooterComponent implements OnInit {
       (returnValue) => {
         if (returnValue) {
           this.userFooterDetails = returnValue;
-          console.log(this.userFooterDetails);
-          console.log(this.userDetails);
         } else {
           console.log("Unable to get the required values for the footer")
         }

@@ -9,6 +9,7 @@ export class BreadcrumbService {
     'nav_projects': { name: 'Projects', route: '/projects'},
     'nav_cv': { name: 'CV', route: '/professional'},
     'nav_articles': { name: 'Articles', route: '/articles'},
+    'nav_videos': { name: 'Videos', route: '/videos'},
     'nav_contact': { name: 'Contact', route: '/contact'},
   };
 

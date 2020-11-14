@@ -59,9 +59,7 @@ export class AuthComponent implements OnInit{
             this.router.navigate(['/dashboard']);
           }
         }
-        console.log(register, isRegister);
       } else {
-        console.log('else');
         this.isLoginProcess = true;
       }
     });
@@ -87,12 +85,10 @@ export class AuthComponent implements OnInit{
       user.password = btoa(user.password);
       this.authService.postSignIn(user).subscribe({
         next: data => {
-            console.log(data);
             this.clear();
             sessionStorage.setItem('user', JSON.stringify(data)) ;
             this.authService.emitUserStatus(data);
             this.router.navigate(['/dashboard']);
-            //this.router.navigate(['/dashboard'], {});
         },
         error: error => {
           this.isShowErrorMessage = true;
