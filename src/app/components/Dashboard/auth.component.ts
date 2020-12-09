@@ -5,6 +5,7 @@ import {CommonUtils} from "../../utils/common.utils";
 import { AuthService } from 'src/app/services/App/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { CONSTANTS } from "../../config/app.config.js"
 
 @Component({
   selector: 'auth-page',
@@ -77,6 +78,10 @@ export class AuthComponent implements OnInit{
         this.openAlertDialog('Please input a valid email and try again');
         return;
       }
+      if (!CONSTANTS.CONNECT_BACKEND) {
+        this.openAlertDialog("Server is currently in maintanance");
+        return;
+      }
       this.isLoading = true;
       const user = {
         email: this.lblSignInEmail,
@@ -145,6 +150,10 @@ export class AuthComponent implements OnInit{
         this.isLoading = false;
         this.lblSignUpPassword = '';
         this.lblSignUpReTypePassword = '';
+        return;
+      }
+      if (!CONSTANTS.CONNECT_BACKEND) {
+        this.openAlertDialog("Server is currently in maintanance");
         return;
       }
       console.log(user);

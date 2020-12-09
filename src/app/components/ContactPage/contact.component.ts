@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {AlertDialogComponent} from "../Common/alert-dialog.component";
 import {EmailService} from "../../services/App/email.service";
 import {CommonUtils} from "../../utils/common.utils";
+import { CONSTANTS } from "../../config/app.config.js"
 
 @Component({
   selector: 'contact-page',
@@ -36,6 +37,12 @@ export class ContactComponent implements OnInit{
         lblEmail: this.lblEmail,
         lblComment: this.lblComment
       }
+
+      if (!CONSTANTS.CONNECT_BACKEND) {
+        this.openAlertDialog("Server is currently in maintanance");
+        return;
+      }
+
       this.emailService.sentEmail(user).subscribe(
         (retData) => {
           console.log(retData);

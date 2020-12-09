@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 import { switchMap } from 'rxjs/operators';
 import { StatService } from "./services/App/statistics.service";
+import { CONSTANTS } from "./config/app.config.js"
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!CONSTANTS.CONNECT_BACKEND) {
+      console.log("Server is currently in maintanance");
+      return;
+    }
     let sessionStatLogStatus = sessionStorage.getItem("session-stored");
     if(!sessionStatLogStatus) {
       this.statService.getIPAddress().pipe(
