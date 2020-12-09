@@ -14,5 +14,5 @@ export const CONSTANTS = {
   STATISTICS_COUNT: 'stat/get-all-stat-record-count',
 
   IP_RETREVE_URL: 'https://api.ipify.org/?format=json',
-  CONNECT_BACKEND: false
+  CONNECT_BACKEND: true
 }

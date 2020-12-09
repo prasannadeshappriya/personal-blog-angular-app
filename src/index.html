@@ -12,9 +12,14 @@
   <meta name="description" content="My name is Prasanna Deshappriya Bandara.
     I’m an undergraduate student from University of Moratuwa and currently specializing ICE (Integrated Computer Engineering) stream.
     This website is my personal website and it is about my projects, my personal details and my skills.">
-  <meta property="og:url" content="https://prasanna.alwaysdata.net" />
+
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Prasanna Deshappriya | Personal Website" />
-  <meta property="og:description" content="Personal Blog of Prasanna Deshappriya, University of Moratuwa" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://prasanna.alwaysdata.net" />
+  <meta property="og:description" content="My name is Prasanna Deshappriya Bandara.
+    I’m an undergraduate student from University of Moratuwa and currently specializing ICE (Integrated Computer Engineering) stream.
+    This website is my personal website and it is about my projects, my personal details and my skills." />
   <!----------------------------------------->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +27,7 @@
         content="Prasanna, Deshappriya, Train Schedule, Schedule, Train,
           Prasanna Deshappriya, UOM, University of Moratuwa,
           Moodle, Moodle Mobile App, Mobile App, Android">
-
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="./assets/images/official_image.jpg">
+  <meta property="og:site_name" content="Prasanna Deshappriya Blog" />
 
   <!--Google Analytics-->
   <meta name="google-site-verification" content="9qDJXFLptap9ioNWyVvLwBVD7UNvtPEaqlboF-0Cors" />
@@ -33,15 +36,63 @@
   <!--SEO Google-->
   <script type="application/ld+json">
     {
-      "@context": "https://prasanna.alwaysdata.net",
-      "@type": "Person",
-      "name": "Prasanna Deshappriya",
-      "url": "https://prasanna.alwaysdata.net",
-      "sameAs": [
-        "https://www.facebook.com/prasanna322",
-        "https://twitter.com/Prasanna322?lang=en",
-        "https://www.linkedin.com/in/prasanna-deshappriya/",
-        "https://github.com/prasannadeshappriya"
+    	"@context":"https://schema.org",
+        "@graph": [
+          {
+            "@type":"Organization",
+            "@id":"https://prasanna.alwaysdata.net/#organization",
+            "name":"Prasanna Deshappriya Blog",
+            "url":"https://prasanna.alwaysdata.net/home",
+            "sameAs":[
+              "https://www.facebook.com/prasanna322/",
+              "https://www.linkedin.com/in/prasanna-deshappriya/"
+            ],
+            "logo":{
+              "@type":"ImageObject",
+              "@id":"https://prasanna.alwaysdata.net/#logo",
+              "inLanguage":"en-US",
+              "url":"https://prasanna.alwaysdata.net/assets/images/logo.png",
+              "width":400,
+              "height":400,
+              "caption":"Prasanna Deshappriya Blog"
+            },
+            "image":{
+              "@id":"https://prasanna.alwaysdata.net/#logo"
+            }
+          },
+          {
+            "@type":"WebSite",
+            "@id":"https://prasanna.alwaysdata.net/#website",
+            "url":"https://prasanna.alwaysdata.net/",
+            "name":"Prasanna Deshappriya Blog",
+            "description":"Personal Blog By Prasanna Deshappriya",
+            "publisher":{
+              "@id":"https://prasanna.alwaysdata.net/#organization"
+            },
+            "inLanguage":"en-US"
+          },
+          {
+            "@type":"CollectionPage",
+            "@id":"https://prasanna.alwaysdata.net/projects/#webpage",
+            "url":"https://prasanna.alwaysdata.net/projects",
+            "name":"Prasanna Deshappriya | Projects",
+            "isPartOf":{
+              "@id":"https://prasanna.alwaysdata.net/#website"
+            },
+            "about":{
+              "@id":"https://prasanna.alwaysdata.net/#organization"
+            },
+            "description":"I have published some of my projects here. Automated fabric defect ditection, Chat-bot, Robot tailor, Moodle Mobile app and Etc.",
+            "inLanguage":"en-US",
+            "potentialAction":[
+              {
+                "@type":"ReadAction",
+                "target":[
+                  "https://prasanna.alwaysdata.net/projects"
+                ]
+              }
+            ]
+          }
       ]
     }
   </script>
